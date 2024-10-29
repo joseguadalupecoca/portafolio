@@ -1,35 +1,30 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import type { Metadata } from "next"
+import { Providers } from "./providers"
+import "./globals.css"
+import Navbar from "./components/layout/navbar"
+import Footer from "./components/layout/footer"
 
 export const metadata: Metadata = {
-  title: "Portafolio | Jose Guadalupe Coca",
-  description: "Portafolio de Jose Guadalupe Coca",
-};
+  title: "JoseGuadalupeCoca.dev",
+  description: "Portfolio y blog personal de José Guadalupe Coca",
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="es" suppressHydrationWarning>
+      <body>
+        <Providers>
+          <div className="relative flex min-h-screen flex-col">
+            <Navbar />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </div>
+        </Providers>
       </body>
     </html>
-  );
+  )
 }

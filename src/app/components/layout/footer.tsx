@@ -5,32 +5,31 @@ import { Github, Mail, Linkedin, Twitter, Instagram } from "lucide-react"
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
-        <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
-          <p className="text-center text-sm leading-loose md:text-left">
-            © 2024 JoseGuadalupeCoca.dev • Blog de inicio de Next.js
-          </p>
-        </div>
-        <div className="flex items-center space-x-4">
+    <footer className="border-t border-gray-200 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 dark:border-gray-800">
+      <div className="max-w-7xl mx-auto flex flex-col items-center justify-center py-8 px-4">
+        {/* Social Icons Container */}
+        <div className="flex items-center justify-center space-x-4 mb-4">
           <Link
             href="mailto:tu@email.com"
-            className="inline-flex items-center justify-center rounded-md w-9 h-9 hover:bg-accent hover:text-accent-foreground"
+            className="inline-flex items-center justify-center rounded-md w-9 h-9 transition-colors hover:text-indigo-400"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <Mail size={20} />
           </Link>
           <Link
             href="https://github.com/tu-usuario"
-            className="inline-flex items-center justify-center rounded-md w-9 h-9 hover:bg-accent hover:text-accent-foreground"
+            className="inline-flex items-center justify-center rounded-md w-9 h-9 transition-colors hover:text-indigo-400"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <Github size={20} />
           </Link>
           <Link
             href="https://facebook.com/tu-usuario"
-            className="inline-flex items-center justify-center rounded-md w-9 h-9 hover:bg-accent hover:text-accent-foreground"
+            className="inline-flex items-center justify-center rounded-md w-9 h-9 transition-colors hover:text-indigo-400"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -48,8 +47,9 @@ export default function Footer() {
           </Link>
           <Link
             href="https://youtube.com/tu-usuario"
-            className="inline-flex items-center justify-center rounded-md w-9 h-9 hover:bg-accent hover:text-accent-foreground"
+            className="inline-flex items-center justify-center rounded-md w-9 h-9 transition-colors hover:text-indigo-400"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -68,25 +68,44 @@ export default function Footer() {
           </Link>
           <Link
             href="https://linkedin.com/in/tu-usuario"
-            className="inline-flex items-center justify-center rounded-md w-9 h-9 hover:bg-accent hover:text-accent-foreground"
+            className="inline-flex items-center justify-center rounded-md w-9 h-9 transition-colors hover:text-indigo-400"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <Linkedin size={20} />
           </Link>
           <Link
             href="https://twitter.com/tu-usuario"
-            className="inline-flex items-center justify-center rounded-md w-9 h-9 hover:bg-accent hover:text-accent-foreground"
+            className="inline-flex items-center justify-center rounded-md w-9 h-9 transition-colors hover:text-indigo-400"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <Twitter size={20} />
           </Link>
           <Link
             href="https://instagram.com/tu-usuario"
-            className="inline-flex items-center justify-center rounded-md w-9 h-9 hover:bg-accent hover:text-accent-foreground"
+            className="inline-flex items-center justify-center rounded-md w-9 h-9 transition-colors hover:text-indigo-400"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <Instagram size={20} />
           </Link>
+        </div>
+
+        {/* Text Container */}
+        <div className="flex flex-col items-center space-y-2 text-sm text-gray-600 dark:text-gray-400">
+          <div className="flex items-center space-x-2">
+            <span>Jose Guadalupe Coca Chávez</span>
+            <span>•</span>
+            <span>© 2024</span>
+            <span>•</span>
+            <span>Next.js Starter Blog</span>
+          </div>
+          <div>
+            <Link href="/" className="hover:text-indigo-400 transition-colors">
+              Tailwind Next.js Theme
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

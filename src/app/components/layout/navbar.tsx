@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { useTheme } from "next-themes"
-import { Menu, X, Moon, Sun } from "lucide-react"
+import { Menu, X, Moon, Sun, Code } from "lucide-react"
 
 export default function Navbar() {
   const { theme, setTheme } = useTheme()
@@ -15,7 +15,7 @@ export default function Navbar() {
   }, [])
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-200 bg-white/80 backdrop-blur-md dark:border-gray-800 dark:bg-gray-900/80">
+    <header className="fixed top-0 z-50 w-full bg-background/60 backdrop-blur-xl">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
@@ -23,10 +23,10 @@ export default function Navbar() {
             href="/" 
             className="flex items-center space-x-3 group"
           >
-            <div className="flex h-8 w-8 items-center justify-center">
-              <i className="fas fa-code text-2xl text-indigo-500 group-hover:text-indigo-400 transition-colors"></i>
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
+              <Code className="h-5 w-5 text-primary" />
             </div>
-            <span className="text-lg font-medium text-gray-900 dark:text-white md:block">
+            <span className="text-lg font-medium text-foreground">
               José Guadalupe Coca Chávez.dev
             </span>
           </Link>
@@ -35,19 +35,19 @@ export default function Navbar() {
           <nav className="hidden md:flex items-center space-x-8">
             <Link
               href="/blog"
-              className="text-sm font-medium text-gray-700 transition-colors hover:text-indigo-400 dark:text-gray-300 dark:hover:text-indigo-400"
+              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
             >
               Blog
             </Link>
             <Link
               href="/projects"
-              className="text-sm font-medium text-gray-700 transition-colors hover:text-indigo-400 dark:text-gray-300 dark:hover:text-indigo-400"
+              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
             >
               Proyectos
             </Link>
             <Link
               href="/about"
-              className="text-sm font-medium text-gray-700 transition-colors hover:text-indigo-400 dark:text-gray-300 dark:hover:text-indigo-400"
+              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
             >
               Sobre mí
             </Link>
@@ -55,18 +55,18 @@ export default function Navbar() {
             {/* Theme Toggle Button */}
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="rounded-md p-2.5 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800 transition-colors"
+              className="rounded-lg p-2 hover:bg-secondary/80 transition-colors"
               aria-label="Cambiar tema"
             >
               {mounted && (
                 theme === 'dark' ? (
                   <Sun 
-                    className="h-5 w-5 text-gray-300 hover:text-indigo-400 transition-colors" 
+                    className="h-5 w-5 text-primary" 
                     aria-hidden="true"
                   />
                 ) : (
                   <Moon 
-                    className="h-5 w-5 text-gray-700 hover:text-indigo-400 transition-colors" 
+                    className="h-5 w-5 text-primary" 
                     aria-hidden="true"
                   />
                 )
@@ -78,13 +78,13 @@ export default function Navbar() {
           <div className="flex md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 dark:text-gray-300"
+              className="inline-flex items-center justify-center rounded-lg p-2 hover:bg-secondary/80"
               aria-label="Toggle menu"
             >
               {isOpen ? (
-                <X className="h-6 w-6" aria-hidden="true" />
+                <X className="h-6 w-6 text-primary" aria-hidden="true" />
               ) : (
-                <Menu className="h-6 w-6" aria-hidden="true" />
+                <Menu className="h-6 w-6 text-primary" aria-hidden="true" />
               )}
             </button>
           </div>
@@ -96,21 +96,21 @@ export default function Navbar() {
             <div className="space-y-1 px-2 pb-3 pt-2">
               <Link
                 href="/blog"
-                className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                className="block rounded-lg px-3 py-2 text-base font-medium text-muted-foreground hover:bg-secondary/80 hover:text-primary"
                 onClick={() => setIsOpen(false)}
               >
                 Blog
               </Link>
               <Link
                 href="/projects"
-                className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                className="block rounded-lg px-3 py-2 text-base font-medium text-muted-foreground hover:bg-secondary/80 hover:text-primary"
                 onClick={() => setIsOpen(false)}
               >
                 Proyectos
               </Link>
               <Link
                 href="/about"
-                className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                className="block rounded-lg px-3 py-2 text-base font-medium text-muted-foreground hover:bg-secondary/80 hover:text-primary"
                 onClick={() => setIsOpen(false)}
               >
                 Sobre mí
@@ -120,7 +120,7 @@ export default function Navbar() {
                   setTheme(theme === "dark" ? "light" : "dark")
                   setIsOpen(false)
                 }}
-                className="w-full text-left rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+                className="w-full text-left rounded-lg px-3 py-2 text-base font-medium text-muted-foreground hover:bg-secondary/80 hover:text-primary"
               >
                 Cambiar tema
               </button>

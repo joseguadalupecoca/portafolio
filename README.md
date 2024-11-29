@@ -1,4 +1,4 @@
-# Portfolio Personal
+# Portafolio Personal
 
 Bienvenido a mi portfolio profesional, un espacio donde comparto mi trayectoria como desarrollador, proyectos y conocimientos técnicos.
 

@@ -11,7 +11,7 @@ Bienvenido a mi portfolio profesional, un espacio donde comparto mi trayectoria 
 
 ## 🛠️ Tecnologías
 
-- Next.js 14
+- Next.js 15
 - TypeScript
 - Tailwind CSS
 

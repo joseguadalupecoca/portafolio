@@ -1,12 +1,15 @@
-import type { Metadata } from "next"
-import { Providers } from "./providers"
-import "./globals.css"
-import Navbar from "./components/layout/navbar"
-import Footer from "./components/layout/footer"
+import './globals.css'
+import { Inter } from 'next/font/google'
+import { ThemeProvider } from './components/theme-provider'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import ParticleBackground from './components/ParticleBackground'
 
-export const metadata: Metadata = {
-  title: "JoseGuadalupeCoca.dev",
-  description: "Portfolio y blog personal de José Guadalupe Coca",
+const inter = Inter({ subsets: ['latin'] })
+
+export const metadata = {
+  title: 'José Guadalupe Coca - Full Stack Developer',
+  description: 'Portfolio de José Guadalupe Coca, desarrollador Full Stack especializado en React y Next.js',
 }
 
 export default function RootLayout({
@@ -16,15 +19,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <body>
-        <Providers>
-          <div className="relative flex min-h-screen flex-col">
-            <Navbar />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
-        </Providers>
+      <body className={`${inter.className} bg-background text-foreground min-h-screen flex flex-col`}>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <ParticleBackground />
+          <Header />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   )
 }
+
